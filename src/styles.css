@@ -2,12 +2,12 @@
   --canvas: #e4ebe6;
   --paper: #f3f6f2;
   --ink: #15241e;
-  --ink-soft: #3a4e45;
+  --ink-soft: #2f433b;
   --cedar: #2c5748;
   --cedar-deep: #1e3d33;
   --brass: #a88454;
   --line: #c3d0c6;
-  --anon: #6a7a72;
+  --anon: #5c6c64;
   --display: "Readex Pro", "Vazirmatn", sans-serif;
   --body: "Vazirmatn", Tahoma, sans-serif;
   --fs-display: clamp(1.85rem, 6vw, 3.35rem);
@@ -19,8 +19,10 @@
   --r-sm: 8px;
   --r-md: 12px;
   --r-lg: 16px;
+  --r-xl: 20px;
+  --r-device: 28px;
   --r-full: 999px;
-  --shadow: 0 14px 36px -18px rgba(21, 36, 30, 0.28);
+  --shadow: 0 12px 28px -18px rgba(21, 36, 30, 0.22);
   --focus: 0 0 0 3px var(--canvas), 0 0 0 5px var(--cedar);
 }
 
@@ -173,8 +175,7 @@ a:focus-visible {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: color-mix(in srgb, var(--canvas) 88%, transparent);
-  backdrop-filter: saturate(1.1);
+  background: var(--canvas);
   border-bottom: 1px solid transparent;
 }
 
@@ -209,12 +210,13 @@ a:focus-visible {
 .nav-desktop {
   display: none;
   margin-inline-start: auto;
-  gap: 1.4rem;
+  gap: 1.75rem;
+  font-weight: 500;
 }
 
 .nav-desktop a,
 .nav-mobile a:not(.btn) {
-  color: var(--ink-soft);
+  color: var(--ink);
 }
 
 .nav-desktop a:hover,
@@ -354,7 +356,7 @@ a:focus-visible {
 
 .orbit {
   position: absolute;
-  top: 9%;
+  top: 10%;
   left: 50%;
   display: flex;
   flex-direction: column;
@@ -426,12 +428,17 @@ a:focus-visible {
   position: relative;
   z-index: 2;
   width: min(36rem, 100%);
-  margin: 2.2rem auto 0;
+  margin: 1.6rem auto 0;
   text-align: center;
+}
+
+.hero-below {
+  margin-top: 0.2rem;
 }
 
 .hero-lead {
   color: var(--ink-soft);
+  margin-bottom: 0;
 }
 
 .hero-actions {
@@ -439,7 +446,7 @@ a:focus-visible {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 1.6rem;
+  margin-top: 1.25rem;
 }
 
 .problem,
@@ -454,7 +461,7 @@ a:focus-visible {
 }
 
 .problem {
-  padding-top: 2rem;
+  padding-top: 3.5rem;
 }
 
 .problem-grid,
@@ -472,14 +479,21 @@ a:focus-visible {
 .compare {
   display: grid;
   gap: 1rem;
+  align-items: stretch;
 }
 
 .compare-pane {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: var(--r-lg);
-  padding: 1.15rem 1.2rem 1rem;
-  box-shadow: var(--shadow);
+  padding: 1.2rem 1.25rem 1.05rem;
+}
+
+.compare-pane.is-circle {
+  border-color: color-mix(in srgb, var(--cedar) 40%, var(--line));
 }
 
 .compare-pane figcaption {
@@ -515,7 +529,8 @@ a:focus-visible {
 }
 
 .compare-pane p {
-  margin-top: 0.85rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
   font-size: var(--fs-caption);
   color: var(--ink-soft);
 }
@@ -600,9 +615,9 @@ a:focus-visible {
   border-radius: var(--r-full);
   display: grid;
   place-items: center;
-  background: var(--canvas);
+  background: var(--cedar);
   border: 1.5px solid var(--cedar);
-  color: var(--cedar);
+  color: var(--paper);
   font-family: var(--display);
   font-weight: 600;
   z-index: 1;
@@ -610,19 +625,28 @@ a:focus-visible {
 
 .app-window {
   margin: 0;
+  text-align: center;
 }
 
 .app-window figcaption {
   color: var(--ink-soft);
   font-size: var(--fs-caption);
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.85rem;
+}
+
+.phone {
+  margin-inline: auto;
+  padding: 0.7rem;
+  border-radius: var(--r-device);
+  background: color-mix(in srgb, var(--ink) 8%, var(--canvas));
+  border: 1px solid var(--line);
 }
 
 .app-chrome {
   background: var(--paper);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow);
+  border-radius: var(--r-xl);
   overflow: hidden;
+  text-align: start;
 }
 
 .app-chrome header {
@@ -689,6 +713,7 @@ a:focus-visible {
   grid-template-rows: auto auto;
   column-gap: 1rem;
   row-gap: 0.25rem;
+  padding-top: 0.2rem;
 }
 
 .feature-bands svg {
@@ -733,9 +758,9 @@ a:focus-visible {
 
 .reveal-card {
   background: var(--paper);
+  border: 1px solid var(--line);
   border-radius: var(--r-lg);
-  padding: 1.3rem;
-  box-shadow: var(--shadow);
+  padding: 1.35rem;
 }
 
 .reveal-card p {
@@ -760,8 +785,25 @@ a:focus-visible {
   cursor: pointer;
   font-family: var(--display);
   font-weight: 600;
-  padding: 0.7rem 0;
+  padding: 0.85rem 1.6rem 0.85rem 0;
   list-style: none;
+  position: relative;
+}
+
+.faq summary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-left: 1.5px solid var(--cedar);
+  border-bottom: 1.5px solid var(--cedar);
+  transform: translateY(-70%) rotate(-45deg);
+}
+
+.faq details[open] summary::after {
+  transform: translateY(-30%) rotate(135deg);
 }
 
 .faq summary::-webkit-details-marker {
@@ -780,27 +822,36 @@ a:focus-visible {
 .close-inner {
   text-align: center;
   position: relative;
-  padding: 4rem 1rem;
+  width: min(34rem, 100%);
+  aspect-ratio: 1;
+  display: grid;
+  place-content: center;
+  gap: 1.4rem;
+  padding: 2rem;
 }
 
 .close-inner::before,
 .close-inner::after {
   content: "";
   position: absolute;
-  border: 1px solid color-mix(in srgb, var(--cedar) 28%, var(--line));
+  border: 1px solid color-mix(in srgb, var(--cedar) 32%, var(--line));
   border-radius: var(--r-full);
-  inset: 8% 18%;
+  inset: 6%;
   pointer-events: none;
 }
 
 .close-inner::after {
-  inset: 18% 28%;
-  border-color: color-mix(in srgb, var(--brass) 45%, var(--line));
+  inset: 16%;
+  border-color: color-mix(in srgb, var(--brass) 50%, var(--line));
 }
 
 .close-inner h2,
 .close-inner .btn {
   position: relative;
+}
+
+.close-inner h2 {
+  margin: 0;
 }
 
 .site-footer {
@@ -883,14 +934,19 @@ a:focus-visible {
 
   .steps li {
     grid-template-columns: 1fr;
-    justify-items: start;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .steps li div {
+    max-width: 18rem;
   }
 }
 
 @media (min-width: 720px) {
   .hero {
     padding-top: 0.4rem;
-    padding-bottom: 7rem;
+    padding-bottom: 11rem;
   }
 
   .ring-stage {
@@ -903,30 +959,31 @@ a:focus-visible {
     width: 100%;
     margin: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     pointer-events: none;
   }
 
-  .hero-core .hero-actions {
+  .hero-core h1 {
+    max-width: 16.5rem;
+    margin: 0;
+  }
+
+  .hero-below {
+    position: absolute;
+    top: 100%;
+    width: min(38rem, 92%);
+    margin-top: 1.5rem;
     pointer-events: auto;
   }
 
-  .hero-core h1 {
-    max-width: 20rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero-lead {
-    position: absolute;
-    top: 100%;
-    width: min(36rem, 90%);
-    margin-top: 1.4rem;
+  .hero-actions {
+    margin-top: 1.15rem;
   }
 
   .travel-slip {
-    display: none;
+    top: 16%;
+    left: 10%;
   }
 
   .feature-bands {

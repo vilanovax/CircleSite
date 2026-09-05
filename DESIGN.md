@@ -5,7 +5,7 @@ colors:
   canvas: "#E4EBE6"
   paper: "#F3F6F2"
   ink: "#15241E"
-  ink-soft: "#3A4E45"
+  ink-soft: "#2F433B"
   cedar: "#2C5748"
   cedar-deep: "#1E3D33"
   brass: "#A88454"
@@ -52,6 +52,8 @@ rounded:
   sm: "8px"
   md: "12px"
   lg: "16px"
+  xl: "20px"
+  device: "28px"
   full: "999px"
 spacing:
   sm: "8px"
@@ -103,7 +105,7 @@ Almost flat. When something lifts (the app window, a listing slip), the shadow i
 
 ## Shapes
 
-Circles and arcs are the native geometry. Pills for actions. Paper slips use `16px` radii. Dashed circles mean anonymous. Do not build the page from equal icon-cards.
+Circles and arcs are the native geometry. Pills for actions. Paper slips use `16px` radii. The app window uses a `28px` device shell with a `20px` inner screen. Dashed circles mean anonymous. Do not build the page from equal icon-cards.
 
 ## Components
 
