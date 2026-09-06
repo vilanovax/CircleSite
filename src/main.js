@@ -1,9 +1,6 @@
 const header = document.querySelector("[data-header]");
 const menuBtn = document.querySelector("[data-menu-btn]");
 const mobileNav = document.querySelector("[data-mobile-nav]");
-const revealBtn = document.querySelector("[data-reveal-btn]");
-const revealName = document.querySelector("[data-reveal-name]");
-const revealFace = document.querySelector("[data-reveal-face]");
 const menuLabel = menuBtn?.querySelector(".sr-only");
 
 const setStuck = () => {
@@ -44,6 +41,36 @@ menuBtn?.addEventListener("click", () => {
   setMenu(!open);
 });
 
+const navLinks = [...document.querySelectorAll(".nav-desktop a, .nav-mobile a")];
+const navTargets = navLinks
+  .map((link) => {
+    const id = link.getAttribute("href");
+    if (!id || !id.startsWith("#")) return null;
+    const section = document.querySelector(id);
+    return section ? { link, section } : null;
+  })
+  .filter(Boolean);
+
+const setCurrentNav = (id) => {
+  navLinks.forEach((link) => {
+    if (link.getAttribute("href") === id) link.setAttribute("aria-current", "true");
+    else link.removeAttribute("aria-current");
+  });
+};
+
+if (navTargets.length) {
+  const updateSpy = () => {
+    const marker = 96;
+    let current = navTargets[0];
+    for (const item of navTargets) {
+      if (item.section.getBoundingClientRect().top - marker <= 0) current = item;
+    }
+    setCurrentNav(current.link.getAttribute("href"));
+  };
+  updateSpy();
+  window.addEventListener("scroll", updateSpy, { passive: true });
+}
+
 mobileNav?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", closeMenu);
 });
@@ -59,24 +86,6 @@ window.addEventListener(
   }, 120),
   { passive: true },
 );
-
-revealBtn?.addEventListener("click", () => {
-  const revealed = revealBtn.getAttribute("aria-pressed") === "true";
-  if (revealed) {
-    revealName.textContent = "هویت مخفی";
-    revealFace.textContent = "؟";
-    revealFace.classList.add("anon");
-    revealBtn.textContent = "آشکار کردن هویت برای این گفتگو";
-    revealBtn.setAttribute("aria-pressed", "false");
-    return;
-  }
-
-  revealName.textContent = "نگار";
-  revealFace.textContent = "نگ";
-  revealFace.classList.remove("anon");
-  revealBtn.textContent = "پنهان کردن هویت";
-  revealBtn.setAttribute("aria-pressed", "true");
-});
 
 const ring = document.querySelector("[data-ring]");
 const travelPath = document.querySelector("#travel-path");
