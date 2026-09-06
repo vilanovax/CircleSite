@@ -46,6 +46,8 @@ Undecided: legal entity name, support email, app store listings, real product sc
 
 Name: سیرکل / Circle. Domain in use: mycircle.ir.
 
+Mark: three interlocking people forming a ring, in royal blue `#0A58D8` and sky `#4EA8F8`. Asset: `public/logo.svg` (raster source: `public/logo.png`). Do not replace with a generic circle or overlapping-ring glyph.
+
 Voice: short, intimate, direct Persian. No marketplace hype, no social-network cheerleading.
 
 Visual constraints from the brief: minimal, modern, quiet; people, relation, and trust over clutter; simple lines or circles for connection; one consistent icon language; mobile first. Do not present Circle as Divar or as a new social network.

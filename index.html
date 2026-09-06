@@ -2,7 +2,7 @@
 <html lang="fa" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>سیرکل — از حلقه آشناها شروع کن</title>
     <meta
       name="description"
@@ -16,12 +16,30 @@
     <meta property="og:locale" content="fa_IR" />
     <meta name="theme-color" content="#E4EBE6" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta property="og:image" content="https://mycircle.ir/logo.png" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:type" content="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@500;600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@600;700&family=Vazirmatn:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <!--
@@ -37,11 +55,7 @@
     <header class="site-header" data-header>
       <div class="shell header-bar">
         <a class="brand" href="#top" aria-label="سیرکل، صفحه اصلی">
-          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-            <circle cx="16" cy="18" r="8.5" />
-            <circle cx="24" cy="18" r="8.5" />
-            <circle cx="20" cy="25" r="8.5" />
-          </svg>
+          <img class="brand-mark" src="/logo.svg" width="40" height="40" alt="" decoding="async" />
           <span>سیرکل</span>
         </a>
 
@@ -55,17 +69,16 @@
         <a class="btn btn-primary header-cta" href="https://app.mycircle.ir">ورود به سیرکل</a>
 
         <button class="menu-btn" type="button" data-menu-btn aria-expanded="false" aria-controls="mobile-nav">
-          <span class="sr-only">منو</span>
+          <span class="sr-only">باز کردن منو</span>
           <span class="menu-lines" aria-hidden="true"></span>
         </button>
       </div>
 
-      <nav id="mobile-nav" class="nav-mobile" data-mobile-nav hidden>
+      <nav id="mobile-nav" class="nav-mobile" data-mobile-nav hidden aria-label="منوی موبایل">
         <a href="#what">سیرکل چیست؟</a>
         <a href="#how">چگونه کار می‌کند؟</a>
         <a href="#features">امکانات</a>
         <a href="#faq">پرسش‌های متداول</a>
-        <a class="btn btn-primary" href="https://app.mycircle.ir">ورود به سیرکل</a>
       </nav>
     </header>
 
@@ -77,52 +90,57 @@
               <svg class="ring-arcs" viewBox="0 0 640 640" aria-hidden="true">
                 <g fill="none" stroke-linecap="round">
                   <circle class="ring-guide" cx="320" cy="320" r="248" />
+                  <circle class="ring-guide ring-guide-inner" cx="320" cy="320" r="190" />
                   <path class="path-brass" d="M320 72 C 430 92 548 190 560 320" />
                   <path class="path-cedar" d="M560 320 C 548 450 430 548 320 568" />
                   <path class="path-brass" d="M320 568 C 210 548 92 450 80 320" />
                   <path class="path-cedar" d="M80 320 C 92 190 210 92 320 72" />
-                  <path class="path-travel" d="M168 168 C 240 120 400 120 472 168 C 510 230 510 320 472 392" />
+                  <path
+                    id="travel-path"
+                    class="path-travel"
+                    d="M 219.1 93.4 A 248 248 0 0 1 566.6 345.9"
+                  />
                 </g>
               </svg>
 
-              <ul class="ring-people">
-                <li class="person" style="--a: 0deg">
+              <ul class="ring-people" aria-label="نمونه نمایشی حلقه آشناها">
+                <li class="person" data-person="سارا" style="--a: 0deg">
                   <span class="orbit">
                     <span class="face">سا</span>
                     <span class="name">سارا</span>
                   </span>
                 </li>
-                <li class="person" style="--a: 48deg">
+                <li class="person" data-person="امین" style="--a: 48deg">
                   <span class="orbit">
                     <span class="face">ام</span>
                     <span class="name">امین</span>
                   </span>
                 </li>
-                <li class="person" style="--a: 96deg">
+                <li class="person" data-person="مریم" style="--a: 96deg">
                   <span class="orbit">
                     <span class="face">مر</span>
                     <span class="name">مریم</span>
                   </span>
                 </li>
-                <li class="person" style="--a: 264deg">
+                <li class="person" data-person="نگار" style="--a: 264deg">
                   <span class="orbit">
                     <span class="face">نگ</span>
                     <span class="name">نگار</span>
                   </span>
                 </li>
-                <li class="person" style="--a: 300deg">
+                <li class="person" data-person="کیان" style="--a: 300deg">
                   <span class="orbit">
                     <span class="face">کی</span>
                     <span class="name">کیان</span>
                   </span>
                 </li>
-                <li class="person" style="--a: 336deg">
+                <li class="person" data-person="یاسمن" style="--a: 336deg">
                   <span class="orbit">
                     <span class="face">یا</span>
                     <span class="name">یاسمن</span>
                   </span>
                 </li>
-                <li class="person person-anon" style="--a: 228deg">
+                <li class="person person-anon" data-person="ناشناس" style="--a: 228deg">
                   <span class="orbit">
                     <span class="face">؟</span>
                     <span class="name">ناشناس</span>
@@ -130,24 +148,24 @@
                 </li>
               </ul>
 
-              <aside class="travel-slip" aria-hidden="true">
+              <aside class="travel-slip" data-travel-slip aria-hidden="true">
                 <p>میز تحریر چوبی</p>
-                <span>از طریق مریم</span>
+                <span data-travel-via>از طریق مریم</span>
               </aside>
             </div>
 
             <div class="hero-core">
-              <h1>چیزی می‌خواهی؟<br />از حلقه آشناها شروع کن.</h1>
-              <div class="hero-below">
-                <p class="hero-lead">
-                  در سیرکل می‌توانی درخواست، پیشنهاد یا آگهی خود را در میان دوستان،
-                  همکاران و آشنایان منتشر کنی و از طریق ارتباطات واقعی، به آدم مناسب
-                  برسی.
-                </p>
-                <div class="hero-actions">
-                  <a class="btn btn-primary" href="https://app.mycircle.ir">ورود به سیرکل</a>
-                  <a class="btn btn-ghost" href="#how">سیرکل چطور کار می‌کند؟</a>
-                </div>
+              <h1>چیزی می‌خواهی؟<br />از حلقه آشناها<br />شروع کن.</h1>
+            </div>
+            <div class="hero-below">
+              <p class="hero-lead">
+                در سیرکل می‌توانی درخواست، پیشنهاد یا آگهی خود را در میان دوستان،
+                همکاران و آشنایان منتشر کنی و از طریق ارتباطات واقعی، به آدم مناسب
+                برسی.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="https://app.mycircle.ir">ورود به سیرکل</a>
+                <a class="btn btn-ghost" href="#how">سیرکل چطور کار می‌کند؟</a>
               </div>
             </div>
           </div>
@@ -173,11 +191,11 @@
             <figure class="compare-pane is-crowd">
               <figcaption>آگهی عمومی</figcaption>
               <ul>
-                <li>فروش مبل <i></i></li>
-                <li>اجاره اتاق <i></i></li>
-                <li>تعمیر پکیج <i></i></li>
-                <li>خرید لپ‌تاپ <i></i></li>
-                <li>همکار فروش <i></i></li>
+                <li>فروش مبل <i aria-hidden="true"></i></li>
+                <li>اجاره اتاق <i aria-hidden="true"></i></li>
+                <li>تعمیر پکیج <i aria-hidden="true"></i></li>
+                <li>خرید لپ‌تاپ <i aria-hidden="true"></i></li>
+                <li>همکار فروش <i aria-hidden="true"></i></li>
               </ul>
               <p>نمی‌دانی با که طرفی</p>
             </figure>
@@ -205,6 +223,8 @@
 
       <section class="how" id="how">
         <div class="shell">
+          <div class="how-layout">
+          <div class="how-copy">
           <header class="section-head">
             <h2>سه قدم، از آشنا تا آگهی</h2>
             <p>سیرکل پیچیده نیست. حلقه را می‌سازی، نیازت را می‌گذاری، از مسیر آدم‌های واقعی جلو می‌روی.</p>
@@ -233,6 +253,7 @@
               </div>
             </li>
           </ol>
+          </div>
 
           <figure class="app-window">
             <figcaption>نمایی از محیط اپ — نمونه نمایشی</figcaption>
@@ -278,6 +299,7 @@
               </div>
             </div>
           </figure>
+          </div>
         </div>
       </section>
 
@@ -361,7 +383,7 @@
                 </div>
               </div>
               <p>فقط طرف مقابل این گفتگو تو را می‌بیند؛ بقیه حلقه همچنان نامت را نمی‌بینند.</p>
-              <button class="btn btn-ghost" type="button" data-reveal-btn>آشکار کردن هویت برای این گفتگو</button>
+              <button class="btn btn-ghost" type="button" data-reveal-btn aria-pressed="false">آشکار کردن هویت برای این گفتگو</button>
             </div>
           </div>
         </div>
@@ -392,25 +414,23 @@
       </section>
 
       <section class="close" id="join">
-        <div class="shell close-inner">
-          <h2>شاید کسی که دنبالش هستی،<br />همین حالا در حلقه تو باشد.</h2>
-          <a class="btn btn-primary btn-lg" href="https://app.mycircle.ir">ورود به سیرکل</a>
+        <div class="shell">
+          <div class="close-inner">
+            <h2>شاید کسی که دنبالش هستی،<br />همین حالا در حلقه تو باشد.</h2>
+            <a class="btn btn-primary btn-lg" href="https://app.mycircle.ir">ورود به سیرکل</a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="shell footer-bar">
-        <a class="brand" href="#top">
-          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-            <circle cx="16" cy="18" r="8.5" />
-            <circle cx="24" cy="18" r="8.5" />
-            <circle cx="20" cy="25" r="8.5" />
-          </svg>
+        <a class="brand" href="#top" aria-label="سیرکل، بازگشت به بالا">
+          <img class="brand-mark" src="/logo.svg" width="40" height="40" alt="" decoding="async" />
           <span>سیرکل</span>
         </a>
         <p>از حلقه آشناها شروع کن.</p>
-        <a href="https://app.mycircle.ir">ورود به اپ</a>
+        <a class="footer-cta" href="https://app.mycircle.ir">ورود به سیرکل</a>
       </div>
     </footer>
 

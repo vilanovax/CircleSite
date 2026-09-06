@@ -9,8 +9,9 @@ colors:
   cedar: "#2C5748"
   cedar-deep: "#1E3D33"
   brass: "#A88454"
+  brass-ink: "#6E542C"
   line: "#C3D0C6"
-  anon: "#6A7A72"
+  anon: "#586860"
 typography:
   display:
     fontFamily: "Readex Pro, Vazirmatn, sans-serif"
@@ -80,13 +81,15 @@ components:
 
 ## Overview
 
+The brand mark is three people locked into a ring (`/logo.png`): two figures in `#0A58D8`, one in `#4EA8F8`. It sits on the canvas without a black plate. Do not wrap it in a cedar stroke or a dark square.
+
 Circle’s marketing surface is a private gathering, not a bazaar and not a social feed. The page is cool garden stone, forest ink, and brass threads. The memorable object is a ring of people with a need traveling between them. Type is geometric and human (Readex Pro for display, Vazirmatn for reading). Light comes from a quiet indoor evening on a phone, so the surface stays pale and cool — not cream-paper, not dark neon.
 
 ## Colors
 
 - `canvas` is the gathering ground. Large fields stay this color.
 - `cedar` is the circle itself: primary actions, marks, live nodes.
-- `brass` is only for connection paths and quiet emphasis, never for buttons.
+- `brass` is only for connection paths. When brass appears as type (a path caption), use `brass-ink` so the words stay readable.
 - `paper` is a slip of content resting on the ground (app window, listing).
 - `anon` is withheld identity: dashed stroke, no fill heroics.
 - Do not introduce sky-blue trust, orange marketplace CTAs, or terracotta cream.
