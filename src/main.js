@@ -10,8 +10,25 @@ const setStuck = () => {
   header?.classList.toggle("is-stuck", window.scrollY > 8);
 };
 
+let stuckFrame = 0;
+const onScroll = () => {
+  if (stuckFrame) return;
+  stuckFrame = requestAnimationFrame(() => {
+    stuckFrame = 0;
+    setStuck();
+  });
+};
+
 setStuck();
-window.addEventListener("scroll", setStuck, { passive: true });
+window.addEventListener("scroll", onScroll, { passive: true });
+
+const debounce = (fn, ms) => {
+  let timer = 0;
+  return () => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(fn, ms);
+  };
+};
 
 const setMenu = (open) => {
   if (!menuBtn || !mobileNav) return;
@@ -37,9 +54,9 @@ document.addEventListener("keydown", (event) => {
 
 window.addEventListener(
   "resize",
-  () => {
+  debounce(() => {
     if (window.matchMedia("(min-width: 720px)").matches) closeMenu();
-  },
+  }, 120),
   { passive: true },
 );
 
@@ -223,10 +240,10 @@ if (ring && travelPath && travelSlip && ringStage) {
     });
     window.addEventListener(
       "resize",
-      () => {
+      debounce(() => {
         measureTravel();
         if (!running) placeSlip(reduceMotion.matches ? 0.84 : 0.48);
-      },
+      }, 120),
       { passive: true },
     );
   }

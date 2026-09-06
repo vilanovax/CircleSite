@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Readex Pro";
+  font-style: normal;
+  font-weight: 600 700;
+  font-display: swap;
+  src: url("/fonts/readex-pro-arabic.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/vazirmatn-arabic.woff2") format("woff2");
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC;
+}
+
 :root {
   --canvas: #e4ebe6;
   --paper: #f3f6f2;
@@ -49,7 +67,6 @@ body {
   font-family: var(--body);
   font-size: var(--fs-body);
   line-height: 1.85;
-  text-rendering: optimizeLegibility;
   overflow-x: clip;
   -webkit-tap-highlight-color: color-mix(in srgb, var(--cedar) 18%, transparent);
 }
@@ -78,6 +95,7 @@ h3 {
   letter-spacing: -0.03em;
   line-height: 1.3;
   margin: 0 0 0.7em;
+  text-rendering: optimizeLegibility;
 }
 
 h1 {
@@ -214,6 +232,7 @@ a:focus-visible {
   font-family: var(--display);
   font-weight: 700;
   font-size: var(--fs-title);
+  text-rendering: optimizeLegibility;
 }
 
 .brand:hover {
@@ -569,6 +588,16 @@ a:focus-visible {
 
 .problem {
   padding-top: 2.4rem;
+}
+
+.how,
+.features,
+.uses,
+.privacy,
+.faq,
+.close {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 28rem;
 }
 
 .problem-grid,
